@@ -1,0 +1,5 @@
+sshd_config_options:
+  PermitRootLogin: "no"
+  PermitEmptyPasswords: "no"
+  LogLevel: "VERBOSE"
+  X11Forwarding: "no"

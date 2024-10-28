@@ -1,0 +1,8 @@
+users:
+  - name: user1
+    shell: /bin/bash
+    state: present
+    groups:
+      - sudo
+    ssh_key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDBfSn/jUippskg66nFmC//WCht+UiiHS1YqlVGaPSCDemDmAFD0mNBg93qD5WlM/bi8nlx9rPu2mCg1IA2HEvc8ek67b9oSzQJ16rfijPaVMYv2duEVVVdWv/uKA6ZnLCXEXcd2ciD8oV3JaBpF2bWPn800X1TyOMFgwbWUjNR1rabohdw62guAzc100xapruoLrnXiV8QhtmAGjPhne62AZnqV2X6sN0dNQR7oUgjyBWL4alZoJYvjm7RzsbJP127UkvJaUWDEyuwW3klmhauryOihJMAY+KVgGZJpWvf4f69Qpuygst4GAnE2MXYGXg1/zN99T2DxJatWF1Elh11GAQI6Q4ZVkItpwDGBCXUsVG8mv4lMH0Nv5JAEWDOirWSkxcG2hO8tYnmS6zjmJK/AvtOLRxHPX0zSkGxmQKWY64Zqh8Yo5vJZIUN+cxmECPFlgsD/THxx/yZ4rYI2b+6QnNRFDq0z6usmrzgDDz/0n154WMJKap5ayVLCPvtU7M= ste@MacBook-Pro-STE.local"
+    password: "qwerty"

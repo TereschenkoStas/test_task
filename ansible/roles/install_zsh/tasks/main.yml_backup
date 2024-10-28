@@ -1,0 +1,36 @@
+- name: Check if Zsh is installed
+  command: which zsh
+  register: zsh_installed
+  ignore_errors: true
+
+- name: Install Zsh if not installed
+  become: true #добавил
+  apt:
+    name: zsh
+    state: present
+  when: zsh_installed.rc != 0
+
+- name: Get the path of Zsh
+  command: which zsh
+  register: zsh_shell_path
+  ignore_errors: true
+
+- name: Set zsh_shell variable
+  set_fact:
+    zsh_shell: "{{ zsh_shell_path.stdout }}"
+  when: zsh_shell_path.rc == 0
+
+- name: Ensure Oh My Zsh is installed for users with Zsh as their shell
+  user:
+    name: "{{ item }}"
+    shell: "{{ zsh_shell }}"
+  with_items: "{{ ansible_users }}"
+  register: users_with_zsh
+
+- name: Install Oh My Zsh
+  become: true
+  become_user: "{{ item }}"
+  command: >-
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" --
+  when: item.shell == zsh_shell
+  with_items: "{{ users_with_zsh.results }}"

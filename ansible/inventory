@@ -1,0 +1,2 @@
+[web]
+test-static-server-1 ansible_connection=docker

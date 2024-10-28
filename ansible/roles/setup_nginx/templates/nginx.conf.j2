@@ -1,0 +1,16 @@
+server {
+    listen 80;
+    server_name localhost;
+
+    location /images {
+        alias /static;
+        expires 1h;
+        gzip_static on;
+        access_log /var/log/nginx/static_access.log;
+        autoindex on;
+    }
+
+    location / {
+        return 404;
+    }
+}

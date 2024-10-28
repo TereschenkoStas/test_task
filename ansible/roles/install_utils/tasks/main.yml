@@ -1,0 +1,10 @@
+- name: Update apt cache and install utilities
+  apt:
+    update_cache: yes
+    name: "{{ item }}"
+    state: present
+  loop:
+    - htop
+    - ncdu
+    - git
+    - nano

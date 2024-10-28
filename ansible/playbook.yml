@@ -1,0 +1,9 @@
+- hosts: web
+  become: true
+  roles:
+    - manage_users
+    - install_zsh
+    - configure_ssh
+    - install_utils
+    - setup_nginx
+    - static_upload

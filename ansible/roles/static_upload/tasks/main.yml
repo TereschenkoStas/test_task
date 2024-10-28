@@ -1,0 +1,7 @@
+- name: Upload static files
+  copy:
+    src: static/
+    dest: /static/
+    owner: www-data
+    group: www-data
+    mode: '0755'

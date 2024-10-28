@@ -1,0 +1,12 @@
+- name: Configure SSH
+  lineinfile:
+    path: /etc/ssh/sshd_config
+    regexp: "^{{ item.key }} *"
+    line: "{{ item.key }} {{ item.value }}"
+  loop: "{{ sshd_config_options | dict2items }}"
+
+- name: Ensure SSH service is running
+  service:
+    name: ssh
+    state: restarted
+  ignore_errors: true
