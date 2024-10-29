@@ -1,6 +1,7 @@
 version: '3'
 services:
   static-server:
+    container_name: my_static_server
     build: .
     ports:
       - "2222:22"     
