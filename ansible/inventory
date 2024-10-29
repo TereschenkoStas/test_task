@@ -1,2 +1,2 @@
 [web]
-test-static-server-1 ansible_connection=docker
+my_static_server ansible_connection=docker
